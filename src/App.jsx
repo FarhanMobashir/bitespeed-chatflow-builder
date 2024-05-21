@@ -17,16 +17,6 @@ import Button from './components/Button';
 import styles from "./app.module.css"
 
 
-const initialNodes = [
-  {
-    id: '1',
-    type: 'textUpdater',
-    position: { x: 50, y: 30 },
-    data: { text: 'text message' },
-  },
-];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
-
 export default function App() {
   const reactFlowWrapper = useRef(null);
 
@@ -155,7 +145,7 @@ export default function App() {
         />
       </div>
       <ReactFlowProvider>
-        <div style={{ width: '100vw', height: '100vh' }} ref={reactFlowWrapper}>
+        <div style={{ width: '100%', height: '87vh' }} ref={reactFlowWrapper}>
           <ReactFlow
             nodeTypes={nodeTypes}
             nodes={nodes}
@@ -169,6 +159,13 @@ export default function App() {
             fitView
           >
             <Background variant="dots" gap={12} size={1} />
+            <MiniMap nodeStrokeWidth={3}
+              position='bottom-left'
+              style={{
+                marginLeft: "60px"
+              }}
+            />
+            <Controls />
             <SideBar />
           </ReactFlow>
         </div>
