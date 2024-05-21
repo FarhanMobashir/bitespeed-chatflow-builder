@@ -1,0 +1,16 @@
+.sidebarContainer {
+   position: fixed;
+    right: 0;
+    background-color: white;
+    height: 100%;
+    z-index: 999;
+    padding: 10px;
+    border-left: 1px solid #CCCCCC;
+    width: 300px; 
+}
+
+.nodeListContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}

@@ -1,0 +1,40 @@
+.nodeContainer {
+    width: 100px;
+    border-radius: 5px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.selected {
+    box-shadow: 0px 0px 10px #525252cc;
+}
+
+.sourceHandle {
+    background: red;
+}
+
+.nodeContent {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #CCCC;
+}
+
+.header {
+    background-color: #b3f8f4cc;
+    color: black;
+    border-radius: 5px 5px 0px 0px;
+    padding: 2px 8px;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-weight: bold;
+}
+
+.text {
+    margin: 0;
+    padding: 5px;
+    font-size: 6px;
+}

@@ -1,0 +1,12 @@
+.mainContainer {
+    width: 100vw;
+    height: 100vh;
+}
+
+.topBar {
+    display: flex;
+    gap: 50px;
+    justify-content: flex-end;
+    padding:20px;
+    border-bottom:1px solid #CCCC;
+}

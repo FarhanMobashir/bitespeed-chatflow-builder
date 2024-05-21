@@ -1,7 +1,10 @@
-import { FaEnvelope } from "react-icons/fa";
-import { useDataContext } from "../contexts/DataContext";
+import { Fa500Px, FaEnvelope } from "react-icons/fa";
+import { useDataContext } from "../../contexts/DataContext";
 import { useOnSelectionChange } from "reactflow";
 import { BsChatText } from "react-icons/bs";
+import styles from "./index.module.css"
+import NodeButton from "../NodeButton";
+import { NodesList } from "../../constants/nodes";
 
 
 const SideBar = () => {
@@ -15,17 +18,7 @@ const SideBar = () => {
         },
     });
     return <div
-        style={{
-            position: "fixed",
-            right: "0",
-            backgroundColor: "white",
-            height: "100%",
-            zIndex: 999,
-            padding: "10px",
-            borderLeft: "1px solid #CCCC",
-            width: "300px"
-        }}
-    >
+        className={styles.sidebarContainer}>
         {
             isNodeSelected.length === 0 && <><h1
                 style={{
@@ -33,29 +26,21 @@ const SideBar = () => {
                 }}
             >Nodes Panel</h1>
                 <div
-                    onDragStart={(event) => {
-                        event.dataTransfer.setData('application/reactflow', "textUpdater");
-                        event.dataTransfer.effectAllowed = 'move';
-                    }}
-                    draggable
-                    style={{
-                        cursor: "grab",
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        border: "2px solid #0559cfcc",
-                        borderRadius: "10px",
-                        padding: "10px",
-                        width: "150px",
-                        height: "80px",
-                        color: "#0559cfcc"
-                    }}
+                    className={styles.nodeListContainer}
                 >
-                    <BsChatText size={25} color="#0559cfcc" />
-                    <span>
-                        Message
-                    </span>
+                    {
+                        NodesList.map((item) => {
+                            return (
+                                <NodeButton
+                                    key={item.title}
+                                    nodeTitle={item.title}
+                                    nodeType={item.nodeType}
+                                    isDraggable={item.isDraggable}
+                                    icon={item.icon}
+                                />
+                            )
+                        })
+                    }
                 </div>
             </>
         }

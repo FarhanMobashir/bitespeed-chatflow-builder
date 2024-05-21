@@ -4,19 +4,18 @@ import ReactFlow,
   MiniMap,
   Controls,
   Background,
-  useNodesState,
-  useEdgesState,
   addEdge,
   ReactFlowProvider,
-  useOnSelectionChange,
 } from 'reactflow';
 
 import 'reactflow/dist/style.css';
 import TextUpdaterNode from './components/TextNode';
-import { FaEnvelope } from "react-icons/fa"
 import { nanoid } from 'nanoid';
 import { useDataContext } from './contexts/DataContext';
-import SideBar from './components/SideBar';
+import SideBar from './components/Sidebar';
+import Button from './components/Button';
+import styles from "./app.module.css"
+
 
 const initialNodes = [
   {
@@ -36,8 +35,6 @@ export default function App() {
     onNodesChange,
     edges,
     setEdges,
-    isNodeSelected,
-    setIsNodeSelected,
     onEdgesChange
   } = useDataContext();
 
@@ -64,7 +61,6 @@ export default function App() {
 
       const type = event.dataTransfer.getData('application/reactflow');
 
-      // check if the dropped element is valid
       if (typeof type === 'undefined' || !type) {
         return;
       }
@@ -134,49 +130,29 @@ export default function App() {
         return false;
       }
     }
-
-
-
   }
 
 
-  console.log({ edges, nodes })
 
   return (
 
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div className={styles.mainContainer}>
       <div
-        style={{
-          background: error ? "#ffbaba" : "white",
-          display: "flex",
-          padding: "20px",
-          borderBottom: "1px solid #CCCC",
-        }}
+        className={styles.topBar}
       >
         {
           error && <p>Cannot Save Flow</p>
         }
-        <button
-          style={{
-            marginLeft: "auto",
-            padding: "8px 16px",
-            border: '2px solid #0559cfcc',
-            borderRadius: "5px",
-            background: "white",
-            color: "#0559cfcc"
-          }}
+        <Button
+          text="Save Changes"
           onClick={() => {
-
-            console.log({ nodes, edges });
-
             if (hasOrphanNode({ edges, nodes })) {
               setError(true)
             } else {
               alert("Your workflow has been saved")
             }
-
           }}
-        >Save Changes</button>
+        />
       </div>
       <ReactFlowProvider>
         <div style={{ width: '100vw', height: '100vh' }} ref={reactFlowWrapper}>
