@@ -6,6 +6,7 @@ const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
 
+    // initial state declaration, may come from backend as well
     const initialNodes = [
         {
             id: nanoid(),
@@ -16,9 +17,11 @@ export const DataProvider = ({ children }) => {
     ];
     const initialEdges = [];
 
+    // node and edge state
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
+    // state for node selection on the canvas
     const [isNodeSelected, setIsNodeSelected] = useState([]);
 
     return <DataContext.Provider value={{
@@ -35,7 +38,7 @@ export const DataProvider = ({ children }) => {
     </DataContext.Provider>
 };
 
-
+// hook to consume data from the context
 export const useDataContext = () => {
     const context = useContext(DataContext);
 

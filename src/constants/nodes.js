@@ -1,7 +1,4 @@
-import { BsChatText } from "react-icons/bs";
-import { FaPlus, FaShoppingCart } from "react-icons/fa";
-import * as Icons from "react-icons/fa";
-
+// config to define nodes with configuration
 export const NodesList = [
     {
         title: "Message",

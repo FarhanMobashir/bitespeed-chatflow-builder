@@ -44,7 +44,7 @@ export default function App() {
 
 
 
-
+  // function which fire on element getting dropped on the canvas
   const onDrop = useCallback(
     (event) => {
       event.preventDefault();
@@ -70,9 +70,11 @@ export default function App() {
     [reactFlowInstance],
   );
 
+  // defining custom nodes
   const nodeTypes = useMemo(() => ({ textUpdater: TextUpdaterNode }), []);
 
 
+  // function which fire on connect edge
   const onConnect = useCallback(
     (params) => {
       console.log(edges.filter(item => item.source === params.source));
@@ -92,6 +94,7 @@ export default function App() {
       }
     }, 2000);
   }, [error])
+
 
   function hasOrphanNode({ nodes, edges }) {
     let nodeWithTargetHandles = [];

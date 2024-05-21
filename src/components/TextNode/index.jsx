@@ -3,6 +3,8 @@ import { Handle, Position } from 'reactflow';
 import { BsChatText } from "react-icons/bs";
 import styles from './index.module.css';
 
+
+// custom node component
 function TextUpdaterNode({ data, selected }) {
     return (
         <div
