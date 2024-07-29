@@ -6,16 +6,16 @@ export const NodesList = [
         icon: "FaMessage",
         isDraggable: true
     },
-    {
-        title: "Catalogue",
-        nodeType: "",
-        icon: "FaBagShopping",
-        isDraggable: false
-    },
-    {
-        title: "Node 3",
-        nodeType: "",
-        icon: "FaBrush",
-        isDraggable: false
-    }
+    // {
+    //     title: "Catalogue",
+    //     nodeType: "",
+    //     icon: "FaBagShopping",
+    //     isDraggable: false
+    // },
+    // {
+    //     title: "Node 3",
+    //     nodeType: "",
+    //     icon: "FaBrush",
+    //     isDraggable: false
+    // }
 ]
